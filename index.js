@@ -1,8 +1,8 @@
 /* eslint-disable no-new */
 import Autocomplete from './Autocomplete';
 import usStates from './us-states';
-import './main.css';
 
+import './main.css';
 
 // US States
 const data = usStates.map(state => ({
@@ -10,16 +10,15 @@ const data = usStates.map(state => ({
   value: state.abbreviation,
 }));
 new Autocomplete(document.getElementById('state'), {
-  data,
+  data: data,
   onSelect: (stateCode) => {
     console.log('selected state:', stateCode);
   },
 });
 
-
-// Github Users
-// new Autocomplete(document.getElementById('gh-user'), {
-//   onSelect: (ghUserId) => {
-//     console.log('selected github user id:', ghUserId);
-//   },
-// });
+new Autocomplete(document.getElementById('gh-user'), {
+  url: 'https://api.github.com/search/users?q=',
+  onSelect: (sortedUsers) => {
+    console.log('selected github user id:', sortedUsers);
+  },
+});

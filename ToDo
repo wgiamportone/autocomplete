@@ -1,0 +1,6 @@
+- On enter after, fill input, and close dropdown
+- States are auto completed ore accurately as letters are added, ie T should show Texas and Tennessee
+- The component should accept any HTTP endpoint, not just the https://api.github.com/users example above.
+- Refactor github-users.js
+- Reorganize
+- Add in comments
