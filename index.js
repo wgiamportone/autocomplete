@@ -10,7 +10,7 @@ const data = usStates.map(state => ({
   value: state.abbreviation,
 }));
 new Autocomplete(document.getElementById('state'), {
-  data: data,
+  data,
   onSelect: (stateCode) => {
     console.log('selected state:', stateCode);
   },
