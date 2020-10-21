@@ -43,6 +43,7 @@ export default class Autocomplete {
   }
 
   updateDropdown(results) {
+    this.listEl.classList.add('active');
     this.listEl.innerHTML = '';
     this.listEl.appendChild(this.createResultsEl(results));
   }
@@ -69,6 +70,7 @@ export default class Autocomplete {
             break;
           case 'Enter':
             onSelect(result.value, result.text, this.inputEl)
+            this.listEl.classList.remove('active')
             break;
           default:
         }
@@ -77,7 +79,10 @@ export default class Autocomplete {
       // Pass the value to the onSelect callback
       el.addEventListener('click', () => {
         const { onSelect } = this.options;
-        if (typeof onSelect === 'function') onSelect(result.value, result.text, this.inputEl);
+        if (typeof onSelect === 'function') {
+          onSelect(result.value, result.text, this.inputEl);
+          this.listEl.classList.remove('active');
+        };
       });
 
       fragment.appendChild(el);

@@ -33,6 +33,10 @@ ul {
   max-height: 200px;
   overflow-y: scroll;
   top: calc(100% - 1px);
+  display: none;
+}
+.results.active {
+  display: block;
 }
 
 .result {
