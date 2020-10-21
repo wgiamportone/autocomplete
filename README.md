@@ -1,4 +1,4 @@
-# autocomplete-org
+# Autocomplete Exercise
 
 ## Overview
 

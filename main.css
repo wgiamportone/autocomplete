@@ -6,7 +6,15 @@ body {
   box-sizing: border-box;
 }
 
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  max-width: 600px;
+}
+
 .form-group {
+  position: relative;
   width: 200px;
 }
 
@@ -20,17 +28,27 @@ ul {
   border: 1px solid #ccc;
   border-top: 0;
   width: 100%;
-  padding: 5px 0;
+  padding: 0;
+  position: absolute;
   max-height: 200px;
   overflow-y: scroll;
+  top: calc(100% - 1px);
 }
 
 .result {
   padding: 5px;
   cursor: pointer;
 }
-.result:hover {
+.result:first-child {
+  padding-top: 10px;
+}
+.result:last-child {
+  padding-bottom: 10px;
+}
+.result:hover,
+.result:focus {
   background-color: #eee;
+  outline: 0;
 }
 
 form {
