@@ -11,14 +11,16 @@ const data = usStates.map(state => ({
 }));
 new Autocomplete(document.getElementById('state'), {
   data,
-  onSelect: (stateCode) => {
+  onSelect: (stateCode, state, input) => {
     console.log('selected state:', stateCode);
+    input.value = state;
   },
 });
 
 new Autocomplete(document.getElementById('gh-user'), {
   url: 'https://api.github.com/search/users?q=',
-  onSelect: (sortedUsers) => {
-    console.log('selected github user id:', sortedUsers);
+  onSelect: (userId, userName, input) => {
+    console.log('selected github user id:', userId);
+    input.value = userName;
   },
 });

@@ -68,7 +68,7 @@ export default class Autocomplete {
             if (el.nextSibling) el.nextSibling.focus();
             break;
           case 'Enter':
-            onSelect(result.value)
+            onSelect(result.value, result.text, this.inputEl)
             break;
           default:
         }
@@ -77,7 +77,7 @@ export default class Autocomplete {
       // Pass the value to the onSelect callback
       el.addEventListener('click', () => {
         const { onSelect } = this.options;
-        if (typeof onSelect === 'function') onSelect(result.value);
+        if (typeof onSelect === 'function') onSelect(result.value, result.text, this.inputEl);
       });
 
       fragment.appendChild(el);
