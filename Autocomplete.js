@@ -107,6 +107,12 @@ export default class Autocomplete {
     inputEl.addEventListener('input',
       event => this.onQueryChange(event.target.value));
 
+    document.addEventListener('click', e => {
+      if (e.target !== inputEl) {
+        this.listEl.classList.remove('active');
+      }
+    });
+
     return inputEl;
   }
 
